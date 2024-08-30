@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_order_manager,sale_order_manager,model_sale_order,group_sale_order_manager,1,1,1,1
+access_service_team_manager,service_team_manager,model_service_team,group_service_team_manager,1,1,1,1
+access_work_order_manager,work_order_manager,model_work_order,group_work_order_manager,1,1,1,1
+access_sale_order_user,sale_order_user,model_sale_order,group_sale_order_user,1,0,0,0
+access_service_team_user,service_team_user,model_service_team,group_service_team_user,1,0,0,0
+access_work_order_user,work_order_user,model_work_order,group_work_order_user,1,0,0,0

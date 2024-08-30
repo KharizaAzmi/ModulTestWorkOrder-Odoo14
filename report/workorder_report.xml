@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <report
+            id="report_workorder_menu"
+            string="Work Order"
+            model="work.order"
+            report_type="qweb-pdf"
+            file="work.work_order_report"
+            name="work.work_order_report"
+        />
+
+        <template id="work_order_report">
+            <t t-call="web.external_layout">
+                <main>
+                <t t-if="docs">
+                    <t t-foreach="docs" t-as="doc">
+                        <t t-if="doc">
+                            <div class="page">
+                                <h2>WORK ORDER: <span t-field="doc.name"/></h2>
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <td>Team Name</td>
+                                        <td><span t-field="doc.team_id.name"/></td>
+                                        <td>Customer Name</td>
+                                        <td><span t-field="doc.partner_id.name"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Booking Order Ref</td>
+                                        <td><span t-field="doc.booking_order_id"/></td>
+                                        <td>Date</td>
+                                        <td><span t-field="doc.date_start"/> - <span t-field="doc.date_end"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Notes</td>
+                                        <td colspan="3"><span t-field="doc.notes"/></td>
+                                    </tr>
+                                </table>
+                                
+                                <div style="margin-top: 50px; text-align: center;">
+                                    <span>                          </span><br/>
+                                    <span>__________________________</span><br/>
+                                    <span>Signature</span>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+                <t t-else="">
+                    <div class="alert alert-danger">
+                        <strong>Error:</strong> No data found for Work Order report.
+                    </div>
+                </t>
+            </main>
+            </t>
+        </template>
+    </data>
+</odoo>
